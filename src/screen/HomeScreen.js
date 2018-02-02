@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,Text } from 'react-native';
+import { StyleSheet,View,Text,Button } from 'react-native';
+import {addImage} from '../utils' 
 
 export default class HomeScreen extends Component {
   render() {
@@ -7,6 +8,9 @@ export default class HomeScreen extends Component {
     return (
      <View style={{flex:1,justifyContent:'center'}}>
          <Text> i am homescrren</Text>
+         <Button title={'תלחצי '} onPress={()=>addImage()} >
+             
+         </Button>
      </View>
     );
   }

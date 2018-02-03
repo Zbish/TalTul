@@ -23,8 +23,8 @@ export default class HomeScreen extends Component {
                         <Text style={styles.text}> בוקר טוב טלטול אל תשכחי לחייך היום</Text>
                         <TouchableOpacity style={styles.press} onPress={() => this.onPress()}>
                             <Image style={styles.image} source={require('../images/cheer-bear.png')} />
+                            <Text style={styles.text}> תלטפי אותי !!!</Text>
                         </TouchableOpacity>
-                        <Text style={styles.text}> תלטפי אותי !!!</Text>
                     </View>}
             </ImageBackground>
         );
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        marginTop: 30,
-        color: '#FF4081',
-        fontSize: 30,
+        marginTop: 35,
+        color: '#F44336',
+        fontSize: 35,
         fontWeight: 'bold',
     },
     image: {

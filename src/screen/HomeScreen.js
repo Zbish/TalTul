@@ -1,21 +1,55 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,Text,Button } from 'react-native';
-import {addImage} from '../utils' 
+import { StyleSheet, View, Text, Button, Image, ImageBackground, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { addImage } from '../utils'
 
 export default class HomeScreen extends Component {
-  render() {
-    
-    return (
-     <View style={{flex:1,justifyContent:'center'}}>
-         <Text> i am homescrren</Text>
-         <Button title={'תלחצי '} onPress={()=>addImage()} >
-             
-         </Button>
-     </View>
-    );
-  }
+    constructor() {
+        super()
+        this.state = {
+            bigImage: false
+        }
+    }
+    onPress() {
+        this.setState({ bigImage: true })
+        setTimeout(() => { this.setState({ bigImage: false }) }, 2000)
+    }
+    render() {
+
+        return (
+            <ImageBackground source={require('../images/forest.jpg')} style={styles.container}>
+                {this.state.bigImage && <Image style={{ width: 400, height: 400, flex: 1 }} source={require('../images/taltula.png')}></Image>}
+                {!this.state.bigImage &&
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.text}> בוקר טוב טלטול אל תשכחי לחייך היום</Text>
+                        <TouchableOpacity style={styles.press} onPress={() => this.onPress()}>
+                            <Image style={styles.image} source={require('../images/cheer-bear.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.text}> תלטפי אותי !!!</Text>
+                    </View>}
+            </ImageBackground>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
- 
+    container: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    text: {
+        marginTop: 30,
+        color: '#FF4081',
+        fontSize: 30,
+        fontWeight: 'bold',
+    },
+    image: {
+        width: 250,
+        height: 300,
+
+    },
+    press: {
+        position: 'absolute',
+        bottom: 40,
+        left: 90,
+    }
 });
